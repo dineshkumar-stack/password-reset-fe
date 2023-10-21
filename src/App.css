@@ -1,0 +1,49 @@
+* {
+  background-color: #e5e5e7;
+}
+
+.formpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form {
+  width: 350px;
+}
+
+.forgetPassword {
+  margin-top: 30px;
+  color: red;
+  text-decoration: underline;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.forgetPassword:hover {
+  opacity: 1
+}
+
+.login {
+  color: blueviolet;
+  margin-top: 5vh;
+  text-align: center;
+}
+
+.login,
+.forgetPassword:active {
+  color: green;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login div {
+  cursor: pointer;
+}
