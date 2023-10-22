@@ -26,13 +26,12 @@ const SignUp = () => {
           signUpData
         )
         .then((response) => {
-          console.log(response.data);
           console.log("sign up successfully done");
         })
         .catch((err) => console.log(err.message));
 
-      alert("Sing Up done successfully");
-      navigate("/login");
+      alert("Sign Up done successfully");
+      navigate("/");
     } else {
       alert("Error in Input");
     }
@@ -58,9 +57,6 @@ const SignUp = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
@@ -75,7 +71,7 @@ const SignUp = () => {
           Sign up
         </Button>
         <div className="login">
-          <div onClick={() => navigate("/login")}>Go to Login page?</div>
+          <div onClick={() => navigate("/")}>Go to Login page?</div>
         </div>
       </Form>
     </div>

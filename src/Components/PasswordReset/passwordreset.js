@@ -17,7 +17,6 @@ function PasswordReset() {
     async function verifyUser(id, randomstring) {
         try {
             const response = await axios.post(`https://password-reset-be-g2ts.onrender.com/user/password-reset?id=${id}&randomstring=${randomstring}`)
-
             if (response.request.responseURL === `https://password-reset-be-g2ts.onrender.com/user/password-reset?id=${id}&randomstring=${randomstring}`) {
                 setId(id);
                 setForm(true);
@@ -42,7 +41,6 @@ function PasswordReset() {
 
     const handlePwdReset = async (e) => {
         e.preventDefault();
-         console.log(Id, newPassword);
         if (newPassword === confirmPassword) {
             const response = await axios.post(`https://password-reset-be-g2ts.onrender.com/user/password-reset/update?id=${Id}&newpassword=${newPassword}`)
             if (response.statusText === "") {
