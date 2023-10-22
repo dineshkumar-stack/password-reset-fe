@@ -17,12 +17,13 @@ function PasswordReset() {
     async function verifyUser(id, randomstring) {
         try {
             const response = await axios.post(`https://password-reset-be-g2ts.onrender.com/user/password-reset?id=${id}&randomstring=${randomstring}`)
-            // console.log(response);
+            console.log(response);
             if (response.statusText === "OK") {
                 setId(id);
                 setForm(true);
             }
             else {
+                console.log(response);
                 console.log("Invalid link or Authorization");
             }
         } catch (err) {

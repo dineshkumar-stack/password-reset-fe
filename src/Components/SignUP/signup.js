@@ -18,7 +18,6 @@ const SignUp = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    console.log("singupdata", signUpData);
 
     if (name !== "" && email !== "") {
       await axios
