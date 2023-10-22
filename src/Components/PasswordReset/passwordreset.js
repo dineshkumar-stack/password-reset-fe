@@ -17,13 +17,12 @@ function PasswordReset() {
     async function verifyUser(id, randomstring) {
         try {
             const response = await axios.post(`https://password-reset-be-g2ts.onrender.com/user/password-reset?id=${id}&randomstring=${randomstring}`)
-            console.log(response);
-            if (response.statusText === "OK") {
+
+            if (response.request.responseURL === `https://password-reset-be-g2ts.onrender.com/user/password-reset?id=${id}&randomstring=${randomstring}`) {
                 setId(id);
                 setForm(true);
             }
             else {
-                console.log(response);
                 console.log("Invalid link or Authorization");
             }
         } catch (err) {
@@ -34,27 +33,24 @@ function PasswordReset() {
     useEffect(() => {
         const id = searchParams.get("id")
         const randomstring = searchParams.get("randomstring")
+
         if (id && randomstring) {
             verifyUser(id, randomstring);
         }
     }, [searchParams])
 
 
-
     const handlePwdReset = async (e) => {
         e.preventDefault();
-        //  console.log(Id, newPassword);
+         console.log(Id, newPassword);
         if (newPassword === confirmPassword) {
             const response = await axios.post(`https://password-reset-be-g2ts.onrender.com/user/password-reset/update?id=${Id}&newpassword=${newPassword}`)
-            if (response.statusText === "OK") {
+            if (response.statusText === "") {
                 alert("password reseted successfully")
                 navigate("/login/success")
             }
         }
     }
-
-
-
     return (
         <div className="formpage">
             {
@@ -77,7 +73,6 @@ function PasswordReset() {
             }
         </div>
     )
-
 }
 
 export default PasswordReset;
